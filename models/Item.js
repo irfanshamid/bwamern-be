@@ -1,4 +1,5 @@
 const mongoose = require("mongoose");
+const {ObjectId} = mongoose.Schema;
 
 const itemSchema = new mongoose.Schema({
     title: {
@@ -19,23 +20,28 @@ const itemSchema = new mongoose.Schema({
     },
     isPopular: {
         type: Boolean,
+        default: false
     },
     description: {
         type: String,
         required: true
     },
-    imageId: {
+    categoryId: {
+        type: ObjectId,
+        ref: 'Category'
+    },
+    imageId: [{
         type: ObjectId,
         ref: 'Image'
-    },
-    featureId: {
+    }],
+    featureId: [{
         type: ObjectId,
         ref: 'Feature'
-    },
-    activityeId: {
+    }],
+    activityeId: [{
         type: ObjectId,
         ref: 'Activity'
-    },
+    }],
 })
 
 module.exports = mongoose.model('Item', itemSchema)
