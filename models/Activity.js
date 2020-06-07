@@ -6,8 +6,8 @@ const activitySchema = new mongoose.Schema({
         type: String,
         required: true
     },
-    qty: {
-        type: Number,
+    type: {
+        type: String,
         required: true
     },
     imageUrl: {
